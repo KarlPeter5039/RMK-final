@@ -1,5 +1,6 @@
 # RMK-final
 Final iteration of the Reconfigurable Mechanical Keyboard including firmware and PCB files
+Developed at Lehigh University for ECE 258 by Sumin Lim '23 and Karl Peter '23
 
 ![Final PCB render](https://i.imgur.com/Q7iEQr8.png)
 
