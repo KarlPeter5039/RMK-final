@@ -1,0 +1,12 @@
+{
+    "keyboard_name": "RMK v1",
+    "manufacturer": "Karl",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0x3060",
+        "device_version": "0.0.1"
+    },
+    "split": {
+        "soft_serial_pin": "D0"
+    }
+}

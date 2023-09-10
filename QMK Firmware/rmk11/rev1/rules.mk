@@ -1,0 +1,4 @@
+EXTRAFLAGS += -flto
+
+MOUSEKEY_ENABLE = no
+CONSOLE_ENABLE = no
