@@ -1,5 +1,6 @@
 # RMK-final
 Final iteration of the Reconfigurable Mechanical Keyboard including firmware and PCB files
+
 Developed at Lehigh University for ECE 258 by Sumin Lim '23 and Karl Peter '23
 
 ![Final PCB render](https://i.imgur.com/Q7iEQr8.png)
@@ -35,6 +36,7 @@ The firmware for a keyboard consists of four primary files:
 - config.h: Defines the low-level configuration for the keyboard.
 - rules.mk: Defines the low-level configuration for the keyboard
 - info.json: Defines the physical keyboard layout visually in JavaScript
+
 QMK Firmware was used to configure the keymap, matrix with corresponding rows and columns, and assign keycodes for each of the switches on the keyboard. These files were then flashed to the microcontroller’s memory.
 
 ![PCB Schematic view](https://i.imgur.com/BqD4hnJ.png)
@@ -45,11 +47,18 @@ On the Arduino Pro Micro/Elite-C, I2C is supported through pins PD1, PD0, GND, a
 
 # Future Work
 We chose to take a simplified approach to our original project plan due to potential hardware address limitations in QMK for 8 modules. We concluded that it would be better to have a couple working modules as opposed to 8 non-working ones. For our final keyboard, we cut the modules to just a left and right half but still included an OLED screen, digital switches, slide potentiometer, and rotary encoders. For future works, this keyboard can potentially expand to our initial goal of the 8 modules specified.
+
 Additionally, to manufacture this keyboard on a larger scale, we have the following design altercations in mind: Breaking away from the Breakout Board, ISP (In-System Programming), Independent Molex/USB/Aviator connection, and LED indicators for boot status/flashing.
-Breaking away from the Breakout Board: It is far easier and cheaper to mass produce the PCB without the Arduino/Elite-C breakout boards that house the ATMega32U4 microprocessor. SMD components would be used with an on-board clock at 16MHz, capacitors for phase inversion, and bypass capacitors between Vcc and GND to reduce switching noise.
-ISP (In-System Programming): This allows quick flashing of the device with firmware without a direct USB connection. This is ideal in a factory environment where it’s impractical to plug each freshly soldered PCB with a USB connection. Instead, a 6 pin ISP connection will be mounted on the board for device access.
+
+### Breaking away from the Breakout Board: 
+It is far easier and cheaper to mass produce the PCB without the Arduino/Elite-C breakout boards that house the ATMega32U4 microprocessor. SMD components would be used with an on-board clock at 16MHz, capacitors for phase inversion, and bypass capacitors between Vcc and GND to reduce switching noise.
+
+### ISP (In-System Programming): 
+This allows quick flashing of the device with firmware without a direct USB connection. This is ideal in a factory environment where it’s impractical to plug each freshly soldered PCB with a USB connection. Instead, a 6 pin ISP connection will be mounted on the board for device access.
 Independent Molex/USB/Aviator connection: This is required when eliminating the breakout board. D+ and D- data connections will be soldered to the connectors to further streamline production and reduce costs at a larger scale.
-LED indicators for boot status/flashing: A two LED setup will be used for when the keyboard’s memory is being wiped and when the keyboard is successfully and continuously connected with no errors. This will add two additional resistors for each LED.
+
+### LED indicators for boot status/flashing: 
+A two LED setup will be used for when the keyboard’s memory is being wiped and when the keyboard is successfully and continuously connected with no errors. This will add two additional resistors for each LED.
 
 ![Flashing the device](https://i.imgur.com/SnhBrNZ.png)
 
