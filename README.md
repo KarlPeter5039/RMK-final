@@ -28,7 +28,7 @@ While there have been many designs for modular keyboards, nothing out there real
 - Slide Potentiometer - Analog slide input for relative positioning input
 - Rotary Encoders - Analog rotating potentiometer inputs for absolute positioning input
 - Keyboard plate - 3D printed to mechanically support switches
-- PCBs - Designed in KiCAD (Figure 4) and ordered from JLCPCB
+- PCBs - Designed in KiCAD and ordered from JLCPCB
 
 ## Firmware Specifications:
 The firmware for a keyboard consists of four primary files: 
@@ -38,6 +38,21 @@ The firmware for a keyboard consists of four primary files:
 - info.json: Defines the physical keyboard layout visually in JavaScript
 
 QMK Firmware was used to configure the keymap, matrix with corresponding rows and columns, and assign keycodes for each of the switches on the keyboard. These files were then flashed to the microcontroller’s memory.
+
+# Bill of Materials (BOM)
+| Component Name          | Quantity |
+| --------------          | -------- |
+| Elite-C Microcontrollers| 2x       |
+| 1N4148 Diodes           | 63x      |
+| TRRS PJ-320A jacks      | 2x       |
+| 4.7k resistors          | 2x       |
+| 128x32 OLED screen      | 1x       | 
+| 10k Slide Potentiometer | 1x       |
+| EC11 Rotary Encoders    | 3x       |
+| Mechanical Switches     | 63x      |
+| Left Keyboard Plate     | 1x       |
+| Right Keyboard Plate    | 1x       |
+| Keyboard PCB            | 1x       |
 
 ![PCB Schematic view](https://i.imgur.com/BqD4hnJ.png)
 
