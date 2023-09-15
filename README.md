@@ -41,7 +41,7 @@ QMK Firmware was used to configure the keymap, matrix with corresponding rows an
 
 # Bill of Materials (BOM)
 | Component Name          | Quantity |
-| --------------          | -------- |
+|     :----------:        |  :----:  |
 | Elite-C Microcontrollers| 2x       |
 | 1N4148 Diodes           | 63x      |
 | TRRS PJ-320A jacks      | 2x       |
