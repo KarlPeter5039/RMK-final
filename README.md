@@ -33,26 +33,15 @@ While there have been many designs for modular keyboards, nothing out there real
 ## Firmware Specifications:
 The firmware for a keyboard consists of four primary files: 
 - keymap.c: Defines the key mapping of the keyboard
-- config.h: Defines the low-level configuration for the keyboard.
-- rules.mk: Defines the low-level configuration for the keyboard
+- config.h: Defines the low-level configuration for the keyboard
+- rules.mk: Defines the parameters of the ATMega32u4 controller 
 - info.json: Defines the physical keyboard layout visually in JavaScript
 
-QMK Firmware was used to configure the keymap, matrix with corresponding rows and columns, and assign keycodes for each of the switches on the keyboard. These files were then flashed to the microcontroller’s memory.
+QMK Firmware was used to configure the keymap, matrix with corresponding rows and columns, and assign keycodes for each of the switches on the keyboard. These files were then flashed to the microcontroller's memory.
 
-# Bill of Materials (BOM)
-| Component Name          | Quantity |
-|     :----------:        |  :----:  |
-| Elite-C Microcontrollers| 2x       |
-| 1N4148 Diodes           | 63x      |
-| TRRS PJ-320A jacks      | 2x       |
-| 4.7k resistors          | 2x       |
-| 128x32 OLED screen      | 1x       | 
-| 10k Slide Potentiometer | 1x       |
-| EC11 Rotary Encoders    | 3x       |
-| Mechanical Switches     | 63x      |
-| Left Keyboard Plate     | 1x       |
-| Right Keyboard Plate    | 1x       |
-| Keyboard PCB            | 1x       |
+### Required software
+- QMK MSYS to compile the .c, .h, .mk. and .json files into a single hex file
+- QMK Toolbox to flash the compiled hex file to the microcontroller over USB (lots of good tutorials on this)
 
 ![PCB Schematic view](https://i.imgur.com/BqD4hnJ.png)
 
@@ -76,6 +65,39 @@ Independent Molex/USB/Aviator connection: This is required when eliminating the 
 A two LED setup will be used for when the keyboard’s memory is being wiped and when the keyboard is successfully and continuously connected with no errors. This will add two additional resistors for each LED.
 
 ![Flashing the device](https://i.imgur.com/SnhBrNZ.png)
+
+# Building your own RMK
+
+## Bill of Materials (BOM)
+| Component Name          | Quantity |
+|     :----------:        |  :----:  |
+| Elite-C Microcontrollers| 2x       |
+| 1N4148 Diodes           | 63x      |
+| TRRS PJ-320A jacks      | 2x       |
+| 4.7k resistors          | 2x       |
+| 128x32 OLED screen      | 1x       | 
+| 10k Slide Potentiometer | 1x       |
+| EC11 Rotary Encoders    | 3x       |
+| Mechanical Switches     | 63x      |
+| Left Keyboard Plate     | 1x       |
+| Right Keyboard Plate    | 1x       |
+| Keyboard PCB            | 1x       |
+
+To order and build your own RMK, you'll have to source the above components on your own. Good keyboard part vendors include [Keebio](https://keeb.io/), [Aliexpress](https://www.aliexpress.com/), [DigiKey](https://www.digikey.com/), [Little Keyboards](https://www.littlekeyboards.com/), [Custom KBD](https://customkbd.com/), and [Amazon](https://www.amazon.com/ref=nav_logo).
+Here, you can obtain most common items such as diodes, microcontrollers, TRRS jacks, and more.
+
+For the PCB, download the PCB gerber and drill files from the repository and upload them to [JLCPCB](https://jlcpcb.com/) and order the 2-layer PCB (minimum order quantity should be around ~5 PCBs. Keyboard plates can be designed by hand or 3D printed if you're fancy.
+
+To build the keyboard: a good approach is to first flash the microcontrollers with firmware to test their functionality and return them if they do not work. After that, solder components while periodically testing the board for functionality (shorting key pins with diodes, turning the rotary encoders, sliding the analog slider, etc.). Hopefully, after some sweat and hopefully no tears, you'll have your own working RMK! Firmware can additionally be customized to your liking by editting the various provided files and compiling them using QMK MSYS + flashing with QMK Toolbox. 
+
+Customization includes 
+- Custom keymaps
+- Custom rotary encoder functions
+- Custom OLED image/animation/information display
+- Special macro keys
+- Additional layers
+- Mapping of analog slider
+- Endless possibilities (possibly)
 
 # Acknowledgements
 Thank you to Professor Khazaei, Professor Cutitaru, Professor Norian, Ted Bowen, Xiyuan, and Kelly Zona for their help, feedback, and guidance for this project throughout the course of the year.
